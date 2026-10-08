@@ -29,6 +29,15 @@ export interface Profile {
   startDate: DateKey;
 }
 
+/** A workout target: `sets` × `reps`. */
+export interface SetsReps {
+  sets: number;
+  reps: number;
+}
+
+/** "How was today's workout?" */
+export type Difficulty = 'easy' | 'good' | 'hard' | 'very_hard';
+
 export interface WorkoutLog {
   id: string;
   day: number;
@@ -39,6 +48,32 @@ export interface WorkoutLog {
   /** Reps done per set. */
   sets: number[];
   totalReps: number;
+  /** What this session targeted (base or adjusted plan). Missing on logs saved before V1.1. */
+  planned?: SetsReps;
+  /** The session followed an applied adjustment instead of the base plan. */
+  adjusted?: boolean;
+  /** Missing when the user skipped the feedback. */
+  difficulty?: Difficulty;
+}
+
+export type AdjustmentReason = 'easy' | 'hard' | 'very_hard' | 'low_completion' | 'partial_completion';
+
+/**
+ * A recommendation the user decided on (applied or kept the plan). The base
+ * plan is never changed; an applied adjustment overrides one upcoming day.
+ */
+export interface WorkoutAdjustment {
+  id: string;
+  /** The upcoming workout day being adjusted. */
+  day: number;
+  /** The workout whose result triggered the recommendation. */
+  sourceDay: number;
+  sourceLogId: string;
+  originalPlan: SetsReps;
+  adjustedPlan: SetsReps;
+  reason: AdjustmentReason;
+  applied: boolean;
+  decidedAt: number;
 }
 
 export interface TestResult {
@@ -63,6 +98,8 @@ export interface ActiveWorkout {
   day: number;
   sets: number;
   reps: number;
+  /** Started from an applied adjustment instead of the base plan. */
+  adjusted?: boolean;
   startedAt: number;
   /** Time excluded from duration (app closed for a long time). */
   pausedMs: number;
@@ -113,6 +150,8 @@ export interface AppData {
   plan: PlanDay[];
   workoutLogs: WorkoutLog[];
   testResults: TestResult[];
+  /** Adjustment history. `plan` stays the untouched base plan. */
+  adjustments: WorkoutAdjustment[];
   activeWorkout: ActiveWorkout | null;
   activeTest: ActiveTest | null;
   settings: Settings;

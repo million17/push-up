@@ -4,6 +4,8 @@
 Local dev → git commit → git push (main) → GitHub → Cloudflare Pages tự build → Production (HTTPS)
 ```
 
+> **Project hiện tại chạy dạng Cloudflare Worker (static assets) tên `push-up`**, kết nối GitHub qua Workers Builds: push `main` → `npx wrangler deploy` (production), push nhánh khác → `npx wrangler preview` (preview). Cấu hình nằm trong `wrangler.jsonc` (`name` phải trùng tên Worker trên dashboard; khối `previews` bắt buộc cho preview; SPA fallback qua `not_found_handling`). `public/_headers` vẫn được áp dụng. Phần hướng dẫn Pages bên dưới giữ lại để tham khảo.
+
 Không có backend, không database: toàn bộ dữ liệu nằm trong `localStorage` của trình duyệt. Gói **Free** của Cloudflare Pages là đủ (500 build/tháng, băng thông và request tĩnh không giới hạn, HTTPS miễn phí), không cần thẻ thanh toán.
 
 ## Build settings

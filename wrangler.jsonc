@@ -1,0 +1,14 @@
+// Cloudflare Workers (static assets only, no Worker script). Workers Builds:
+// push to main → `npx wrangler deploy`; other branches → `npx wrangler preview`.
+{
+  // Must match the Worker name in the Cloudflare dashboard.
+  "name": "push-up",
+  "compatibility_date": "2026-10-08",
+  "assets": {
+    "directory": "./dist",
+    // SPA: unknown paths serve index.html.
+    "not_found_handling": "single-page-application"
+  },
+  // Required by `wrangler preview` (branch previews). Nothing preview-specific yet.
+  "previews": {}
+}

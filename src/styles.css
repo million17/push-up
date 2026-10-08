@@ -1172,3 +1172,381 @@ p {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* ================= V1.1 — Progress chart + Auto-adjust ================= */
+.accent {
+  color: var(--accent);
+}
+.block {
+  display: block;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--rest) 16%, var(--surface));
+  color: var(--rest);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.adjust-tag {
+  color: var(--rest);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Set view: reps actually done */
+.rep-adjust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.rep-adjust .round-btn {
+  width: 52px;
+  height: 52px;
+  font-size: 24px;
+}
+.rep-adjust .round-btn:disabled {
+  opacity: 0.3;
+}
+.rep-adjust-value {
+  display: grid;
+  min-width: 84px;
+  font-variant-numeric: tabular-nums;
+}
+.rep-adjust-value strong {
+  font-size: 28px;
+  font-weight: 900;
+}
+.rep-adjust-value .muted {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Workout complete */
+.completion-line {
+  margin-top: -10px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.feedback {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+.difficulty-chips {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.difficulty-chip {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-height: 72px;
+  padding: 8px 4px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+}
+.difficulty-chip.on {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+.difficulty-emoji {
+  font-size: 26px;
+  line-height: 1;
+}
+.difficulty-label {
+  white-space: nowrap;
+}
+.support-note,
+.decision-note {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--muted);
+  text-align: left;
+}
+.decision-note.applied {
+  color: var(--accent);
+  font-weight: 700;
+}
+.adjust-card {
+  width: 100%;
+  text-align: left;
+  outline: 1px solid var(--line);
+}
+.adjust-title {
+  font-size: 20px;
+  font-weight: 800;
+}
+.adjust-compare {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  font-variant-numeric: tabular-nums;
+}
+.adjust-from {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--muted);
+}
+.adjust-arrow {
+  color: var(--muted);
+}
+.adjust-to {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+/* Progress: summary */
+.summary-hero {
+  display: grid;
+  gap: 2px;
+}
+.hero-figure {
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.hero-figure .muted {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.empty-state {
+  padding: 20px 16px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Progress: charts (single series → the title names it, no legend) */
+.chart {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+  touch-action: manipulation;
+}
+.chart-grid,
+.chart-axis {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.chart-tick {
+  fill: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.chart-goal {
+  stroke: var(--warn);
+  stroke-width: 1;
+  opacity: 0.7;
+}
+.chart-goal-label {
+  fill: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+.chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.chart-point,
+.chart-bar {
+  cursor: pointer;
+  outline: none;
+}
+.chart-hit {
+  fill: transparent;
+}
+.chart-dot {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+.chart-point.selected .chart-dot {
+  stroke: var(--text);
+}
+.chart-point:focus-visible .chart-hit,
+.chart-bar:focus-visible .chart-hit {
+  fill: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.chart-value {
+  fill: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.chart-bar-fill {
+  fill: color-mix(in srgb, var(--accent) 70%, var(--surface));
+}
+.chart-bar.selected .chart-bar-fill {
+  fill: var(--accent);
+}
+.chart-readout {
+  min-height: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress: milestones */
+.milestones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+.milestones li {
+  display: grid;
+  grid-template-columns: 32px 1fr auto 20px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  opacity: 0.5;
+}
+.milestones li:last-child {
+  border-bottom: 0;
+}
+.milestones li.achieved {
+  opacity: 1;
+}
+.milestone-icon {
+  font-size: 22px;
+  text-align: center;
+}
+.milestone-body {
+  display: grid;
+}
+.milestone-reps {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.milestone-mark {
+  text-align: center;
+  font-weight: 900;
+  color: var(--muted);
+}
+.milestones li.achieved .milestone-mark {
+  color: var(--accent);
+}
+
+/* Progress: workout history */
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.history-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 64px 1fr 16px;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--surface-2);
+  text-align: left;
+}
+.history-rest {
+  background: transparent;
+  border: 1px dashed var(--line);
+}
+.history-day {
+  font-weight: 800;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.history-body {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.history-body strong {
+  font-variant-numeric: tabular-nums;
+}
+.history-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.history-chevron {
+  color: var(--muted);
+  font-size: 20px;
+}
+
+/* Day detail: workout records + adjustment history */
+.log-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.log-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+}
+.log-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.log-facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+.log-facts div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.log-facts dt {
+  font-size: 12px;
+  color: var(--muted);
+}
+.log-facts dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.adjust-history {
+  display: grid;
+  gap: 6px;
+}

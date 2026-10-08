@@ -1,4 +1,5 @@
-import { formatWorkout, getPlanDay } from '../domain/plan';
+import { effectivePlanDay } from '../domain/adjustment';
+import { formatWorkout } from '../domain/plan';
 import { currentDayNumber, isDayCompleted, nextTrainingDay } from '../domain/schedule';
 import { bestMax } from '../domain/stats';
 import type { AppData, DateKey, WorkoutPlanDay } from '../domain/types';
@@ -34,7 +35,7 @@ export type PermissionState = NotificationPermission | 'unsupported';
 export function todaysReminder(data: AppData, today: DateKey = todayKey()): Reminder | null {
   if (!data.profile) return null;
   const day = currentDayNumber(data.profile, today);
-  const plan = getPlanDay(data.plan, day);
+  const plan = effectivePlanDay(data, day);
   if (!plan || isDayCompleted(data, plan)) return null;
   if (plan.type === 'workout') return { kind: 'workout', day, plan };
   if (plan.type === 'test') return { kind: 'test', day, best: bestMax(data) };

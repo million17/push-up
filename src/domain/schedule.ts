@@ -19,8 +19,9 @@ export function isChallengeOver(data: AppData, today: DateKey): boolean {
   return !!data.profile && currentDayNumber(data.profile, today) > data.plan.length;
 }
 
+/** A workout logged with 0 reps is kept in history but does not complete the day. */
 export function isDayCompleted(data: Pick<AppData, 'workoutLogs' | 'testResults'>, d: PlanDay): boolean {
-  if (d.type === 'workout') return data.workoutLogs.some((l) => l.day === d.day);
+  if (d.type === 'workout') return data.workoutLogs.some((l) => l.day === d.day && l.totalReps > 0);
   if (d.type === 'test') return data.testResults.some((r) => r.day === d.day);
   return false;
 }

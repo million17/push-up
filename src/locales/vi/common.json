@@ -102,9 +102,12 @@
     "repsLeft": "Còn {{count}} lần. Chạm để đếm một lần.",
     "unitReps": "lần",
     "unitToGo": "còn lại",
-    "hint": "Chạm vào vòng tròn mỗi lần — hoặc bấm Xong hiệp",
+    "hint": "Chạm vào vòng tròn mỗi lần, hoặc chỉnh số lần bằng − / + rồi bấm Xong hiệp",
     "doneSet": "Xong hiệp",
-    "setsDone": "Đã xong {{done}}/{{total}} hiệp"
+    "setsDone": "Đã xong {{done}}/{{total}} hiệp",
+    "repsDone": "lần đã làm",
+    "oneLess": "Bớt một lần",
+    "oneMore": "Thêm một lần"
   },
   "rest": {
     "label": "Nghỉ",
@@ -122,7 +125,10 @@
     "sets": "Hiệp",
     "streak": "Chuỗi",
     "challenge": "Thử thách",
-    "progress": "Tiến độ 30 ngày"
+    "progress": "Tiến độ 30 ngày",
+    "completedPct": "Hoàn thành {{pct}}%",
+    "savedTitle": "Đã lưu buổi tập",
+    "savedBody": "Ngày {{day}} vẫn để ngỏ — quay lại khi bạn sẵn sàng."
   },
   "test": {
     "title": "Kiểm tra hít đất tối đa",
@@ -147,7 +153,6 @@
     "toGo": "Còn {{left}} lần nữa để đạt mục tiêu {{goal}}"
   },
   "progress": {
-    "eyebrow": "Thử thách 30 ngày",
     "challengeProgress": "Tiến độ thử thách",
     "workoutTime": "Giờ tập",
     "currentStreak": "Chuỗi hiện tại",
@@ -168,6 +173,83 @@
       "upcoming": "○ sắp tới",
       "rest": "— nghỉ",
       "missed": "✕ đã lỡ"
+    },
+    "title": "Tiến độ",
+    "currentBest": "Kỷ lục hiện tại",
+    "startingMax": "Tối đa ban đầu",
+    "improvement": "Tiến bộ",
+    "improvementLine": "+{{diff}} lần",
+    "toGoal": "Còn đến mục tiêu",
+    "nextTest": "Kiểm tra tiếp theo",
+    "goalProgress": "Tiến độ mục tiêu"
+  },
+  "chart": {
+    "maxTitle": "Tiến bộ hít đất",
+    "maxSubtitle": "Số lần tối đa trong một hiệp: lúc bắt đầu và mỗi lần kiểm tra",
+    "empty": "Biểu đồ bắt đầu từ lần kiểm tra tối đa đầu tiên vào Ngày {{day}}. Tối đa ban đầu: {{reps}} lần.",
+    "emptyNoTest": "Chưa có kết quả kiểm tra tối đa.",
+    "volumeTitle": "Tổng số lần",
+    "volumeSubtitle": "Số lần bạn thực sự làm trong mỗi ngày tập",
+    "volumeOfPlanned": "{{done}} / {{planned}} lần"
+  },
+  "milestones": {
+    "title": "Cột mốc",
+    "started": "Bắt đầu",
+    "first": "Lần đầu {{count}}",
+    "reps": "{{count}} lần hít đất",
+    "reachedOn": "Đạt vào Ngày {{day}}",
+    "notYet": "Chưa đạt",
+    "achieved": "Đã đạt"
+  },
+  "history": {
+    "recent": "Buổi tập gần đây",
+    "empty": "Chưa có buổi tập nào. Các buổi tập đã xong sẽ hiện ở đây.",
+    "showAll": "Xem toàn bộ lịch sử tập ({{count}})",
+    "showLess": "Thu gọn",
+    "restDay": "Ngày nghỉ",
+    "completedPct": "Hoàn thành {{pct}}%",
+    "planned": "Kế hoạch",
+    "actual": "Thực tế",
+    "total": "Tổng",
+    "difficulty": "Độ khó",
+    "skipped": "Bỏ qua",
+    "adjustedYes": "Có · {{scheme}}",
+    "no": "Không"
+  },
+  "difficulty": {
+    "question": "Buổi tập hôm nay thế nào?",
+    "easy": "Dễ",
+    "good": "Vừa sức",
+    "hard": "Khó",
+    "very_hard": "Rất khó",
+    "optional": "Không bắt buộc — có thể bỏ qua."
+  },
+  "adjust": {
+    "recommended": "Bài tập đề xuất",
+    "challengingTitle": "Buổi tập hôm nay khá thử thách.",
+    "challengingBody": "Chúng tôi đề xuất điều chỉnh buổi tập tiếp theo.",
+    "easyTitle": "Làm tốt lắm! 💪",
+    "easyBody": "Bạn đã hoàn thành buổi tập hôm nay một cách dễ dàng. Chúng tôi đề xuất tăng nhẹ cho buổi tập tiếp theo.",
+    "consistency": "Đều đặn quan trọng hơn hoàn hảo.",
+    "tomorrow": "Ngày mai",
+    "changesTo": "đổi thành",
+    "apply": "Áp dụng",
+    "applyAdjustment": "Áp dụng điều chỉnh",
+    "keepPlan": "Giữ kế hoạch",
+    "appliedNote": "✓ Ngày {{day}} đã điều chỉnh thành {{scheme}}.",
+    "keptNote": "Giữ kế hoạch: Ngày {{day}} vẫn là {{scheme}}.",
+    "adjusted": "Đã điều chỉnh",
+    "adjustedFrom": "Đã điều chỉnh · kế hoạch gốc {{scheme}}",
+    "history": "Lịch sử điều chỉnh",
+    "fromDay": "Sau Ngày {{day}}",
+    "applied": "Đã áp dụng",
+    "kept": "Giữ kế hoạch",
+    "reason": {
+      "easy": "Cảm thấy dễ",
+      "hard": "Cảm thấy khó",
+      "very_hard": "Cảm thấy rất khó",
+      "low_completion": "Hoàn thành dưới 75%",
+      "partial_completion": "Hoàn thành 75–89%"
     }
   },
   "plan": {
