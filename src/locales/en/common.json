@@ -1,0 +1,249 @@
+{
+  "common": {
+    "appName": "Push-up 30",
+    "day": "Day {{day}}",
+    "dayOf": "Day {{current}} / {{total}}",
+    "pushUps": "Push-ups",
+    "reps": "reps",
+    "repsCount_one": "{{count}} rep",
+    "repsCount_other": "{{count}} reps",
+    "sec": "sec",
+    "minutesApprox": "~{{count}} min",
+    "everyDay": "Every day",
+    "goal": "Goal",
+    "cancel": "Cancel",
+    "done": "Done",
+    "back": "Back",
+    "next": "Next",
+    "on": "On",
+    "off": "Off",
+    "decrease": "Decrease {{label}}",
+    "increase": "Increase {{label}}"
+  },
+  "nav": {
+    "today": "Today",
+    "progress": "Progress",
+    "plan": "Plan",
+    "settings": "Settings"
+  },
+  "dayType": {
+    "workout": "Workout",
+    "workoutDesc": "{{scheme}} push-ups",
+    "test": "Max test",
+    "rest": "Rest"
+  },
+  "dayStatus": {
+    "completed": "Completed",
+    "today": "Today",
+    "upcoming": "Upcoming",
+    "rest": "Recovery day",
+    "missed": "Missed"
+  },
+  "today": {
+    "greeting": {
+      "morning": "Good morning 👋",
+      "afternoon": "Good afternoon 👋",
+      "evening": "Good evening 👋"
+    },
+    "todaysWorkout": "Today's workout",
+    "totalReps": "Total reps",
+    "estimatedTime": "Estimated time",
+    "startWorkout": "Start workout",
+    "resumeWorkout": "Resume workout",
+    "trainAgain": "Train again",
+    "readyToStart": "Ready to start",
+    "waitingTitle": "Your workout is waiting 💪",
+    "waitingBody": "You haven't completed today's workout yet.",
+    "inProgress": "In progress · {{done}}/{{total}} sets",
+    "doneNote": "✓ Workout done. Nice work.",
+    "todaysProgress": "Today's progress",
+    "setN": "Set {{n}}",
+    "setsCompleted": "Sets completed",
+    "workoutTime": "Workout time",
+    "recovery": {
+      "title": "Recovery Day 🌿",
+      "noWorkout": "No workout today.",
+      "body": "Take a rest and recover.",
+      "nextTomorrow": "Your next workout is tomorrow.",
+      "nextOn": "Next: Day {{day}} · {{what}}",
+      "viewPlan": "View plan"
+    },
+    "finished": {
+      "title": "🏁 Challenge finished",
+      "bestMax": "Best max",
+      "workouts": "Workouts",
+      "totalReps": "Total reps",
+      "longestStreak": "Longest streak",
+      "startNew": "Start a new challenge",
+      "confirmTitle": "Start over?",
+      "confirmMessage": "This clears your current challenge history.",
+      "confirmLabel": "Start new challenge"
+    },
+    "unfinished": {
+      "text": "Unfinished Day {{day}} workout · {{done}}/{{total}} sets",
+      "discard": "Discard",
+      "resume": "Resume"
+    },
+    "catchUp": {
+      "missedOne": "Missed Day {{day}}. Pick up from Day {{day}} today?",
+      "missedMany": "Missed {{count}} days. Pick up from Day {{day}} today?",
+      "button": "Catch up"
+    }
+  },
+  "workout": {
+    "exit": "Exit workout",
+    "clock": "Workout time",
+    "leaveTitle": "Leave workout?",
+    "leaveMessage": "{{done}} of {{total}} sets done. You can resume later from Today.",
+    "saveExit": "Save & exit",
+    "keepTraining": "Keep training",
+    "discard": "Discard workout",
+    "setN": "Set {{n}}",
+    "repsLeft": "{{count}} reps left. Tap to count one rep.",
+    "unitReps": "reps",
+    "unitToGo": "to go",
+    "hint": "Tap the circle each rep — or just hit Done",
+    "doneSet": "Done set",
+    "setsDone": "{{done}} of {{total}} sets done"
+  },
+  "rest": {
+    "label": "Rest",
+    "next": "Next:",
+    "minus15": "Remove 15 seconds",
+    "plus15": "Add 15 seconds",
+    "pause": "Pause rest",
+    "resume": "Resume rest",
+    "skip": "Skip rest"
+  },
+  "complete": {
+    "title": "Workout Complete",
+    "dayCompleted": "Day {{day}} completed",
+    "time": "Time",
+    "sets": "Sets",
+    "streak": "Streak",
+    "challenge": "Challenge",
+    "progress": "30 day progress"
+  },
+  "test": {
+    "title": "Max push-up test",
+    "previousBest": "Previous best",
+    "instructions": "One set, as many as you can with good form. Count each rep with the big button.",
+    "testedToday": "✓ Tested today: {{count}} reps",
+    "start": "Start test",
+    "resume": "Resume test",
+    "again": "Test again",
+    "exit": "Exit test",
+    "sessionTitle": "Max test · Day {{day}}",
+    "stopwatch": "Stopwatch",
+    "plusOne": "+1 REP",
+    "undo": "Undo −1",
+    "finish": "Finish test",
+    "leaveTitle": "Leave test?",
+    "leaveMessage": "Your count is kept. You can resume from Today.",
+    "saveExit": "Save & exit",
+    "keepGoing": "Keep going",
+    "discard": "Discard test",
+    "goalReached": "Goal of {{goal}} reached!",
+    "toGo": "{{left}} to go to your goal of {{goal}}"
+  },
+  "progress": {
+    "eyebrow": "30 Day Challenge",
+    "challengeProgress": "Challenge progress",
+    "workoutTime": "Workout time",
+    "currentStreak": "Current streak",
+    "streakDays_one": "{{count}} day",
+    "streakDays_other": "{{count}} days",
+    "totalWorkouts": "Total workouts",
+    "totalReps": "Total reps",
+    "longestStreak": "Longest streak",
+    "bestMax": "Best max",
+    "calendar": "Calendar",
+    "maxTests": "Max tests",
+    "start": "Start",
+    "initial": "initial",
+    "calendarDay": "Day {{day}}, {{type}}, {{status}}",
+    "legend": {
+      "completed": "✓ done",
+      "today": "● today",
+      "upcoming": "○ upcoming",
+      "rest": "— rest",
+      "missed": "✕ missed"
+    }
+  },
+  "plan": {
+    "eyebrow": "Training plan",
+    "title": "30 days"
+  },
+  "dayDetail": {
+    "recoveryTitle": "Recovery Day",
+    "setsOfReps": "{{sets}} sets of {{reps}} · {{total}} reps total",
+    "restBody": "No workout. Let your muscles recover.",
+    "unlocksOn": "Unlocks on {{date}}",
+    "startWorkout": "Start workout",
+    "trainAgain": "Train again",
+    "startTest": "Start test",
+    "testAgain": "Test again"
+  },
+  "onboarding": {
+    "eyebrow": "30 Day Push-up Challenge",
+    "maxTitle": "What's your max push-ups?",
+    "maxBody": "In one go, with good form. A guess is fine.",
+    "maxLabel": "Max push-ups",
+    "goalTitle": "What's your goal?",
+    "goalBody": "Push-ups in a row by Day 30.",
+    "goalLabel": "Goal",
+    "startDay1": "Start Day 1"
+  },
+  "settings": {
+    "title": "Settings",
+    "workout": "Workout",
+    "dailyReminder": "Daily reminder",
+    "workoutTime": "Workout time",
+    "custom": "Custom",
+    "customTime": "Custom workout time",
+    "restTime": "Rest time",
+    "resetRest": "Reset to plan default ({{seconds}}s)",
+    "reminderUnsupported": "This browser can't show notifications. On iPhone or iPad, add the app to your Home Screen first (iOS 16.4+).",
+    "reminderBlocked": "Notifications are blocked, so the reminder is off. Allow notifications for this site in your browser settings.",
+    "reminderLimits": "Reminders arrive while the app is open or running in the background. For an alarm that always rings, add it to your calendar.",
+    "addToCalendar": "Add to calendar",
+    "sendTest": "Send a test reminder",
+    "goal": "Goal",
+    "startingMax": "Starting max: {{count}} reps. The plan is scaled to it.",
+    "cues": "Cues",
+    "sound": "Sound",
+    "vibration": "Vibration",
+    "language": "Language",
+    "challenge": "Challenge",
+    "reset": "Reset challenge",
+    "resetTitle": "Reset challenge?",
+    "resetMessage": "All workouts, tests and progress will be deleted. Your settings are kept.",
+    "resetConfirm": "Reset everything"
+  },
+  "reminderPrompt": {
+    "title": "Stay on track 💪",
+    "body": "Get a daily reminder at {{time}} so you never miss your workout.",
+    "enable": "Enable reminder",
+    "notNow": "Not now"
+  },
+  "notification": {
+    "workoutTitle": "💪 Time for your workout",
+    "workoutBody": "Day {{day}} is ready.\n{{scheme}} push-ups",
+    "startAction": "Start Workout",
+    "testTitle": "🏆 Max push-up test today",
+    "testBody": "Day {{day}} is ready.\nPrevious best: {{best}} reps",
+    "restTitle": "🌿 Recovery Day",
+    "restBodyTomorrow": "Take a rest today.\nYour next workout is tomorrow.",
+    "restBodyLater": "Take a rest today.\nNext workout: Day {{day}}.",
+    "checkTitle": "✅ Reminder is on",
+    "checkBody": "We'll remind you every day at {{time}}."
+  },
+  "calendarEvent": {
+    "title": "💪 Push-up workout",
+    "description": "Open Push-up 30 and start today's workout."
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "English"
+  }
+}

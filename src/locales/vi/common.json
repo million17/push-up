@@ -1,0 +1,249 @@
+{
+  "common": {
+    "appName": "Push-up 30",
+    "day": "Ngày {{day}}",
+    "dayOf": "Ngày {{current}} / {{total}}",
+    "pushUps": "Hít đất",
+    "reps": "lần",
+    "repsCount_one": "{{count}} lần",
+    "repsCount_other": "{{count}} lần",
+    "sec": "giây",
+    "minutesApprox": "~{{count}} phút",
+    "everyDay": "Mỗi ngày",
+    "goal": "Mục tiêu",
+    "cancel": "Huỷ",
+    "done": "Xong",
+    "back": "Quay lại",
+    "next": "Tiếp tục",
+    "on": "Bật",
+    "off": "Tắt",
+    "decrease": "Giảm {{label}}",
+    "increase": "Tăng {{label}}"
+  },
+  "nav": {
+    "today": "Hôm nay",
+    "progress": "Tiến độ",
+    "plan": "Lịch tập",
+    "settings": "Cài đặt"
+  },
+  "dayType": {
+    "workout": "Bài tập",
+    "workoutDesc": "{{scheme}} hít đất",
+    "test": "Kiểm tra tối đa",
+    "rest": "Nghỉ"
+  },
+  "dayStatus": {
+    "completed": "Đã hoàn thành",
+    "today": "Hôm nay",
+    "upcoming": "Sắp tới",
+    "rest": "Ngày nghỉ",
+    "missed": "Đã lỡ"
+  },
+  "today": {
+    "greeting": {
+      "morning": "Chào buổi sáng 👋",
+      "afternoon": "Chào buổi chiều 👋",
+      "evening": "Chào buổi tối 👋"
+    },
+    "todaysWorkout": "Bài tập hôm nay",
+    "totalReps": "Tổng số lần",
+    "estimatedTime": "Thời gian dự kiến",
+    "startWorkout": "Bắt đầu tập",
+    "resumeWorkout": "Tập tiếp",
+    "trainAgain": "Tập lại",
+    "readyToStart": "Sẵn sàng bắt đầu",
+    "waitingTitle": "Bài tập đang chờ bạn 💪",
+    "waitingBody": "Bạn chưa hoàn thành bài tập hôm nay.",
+    "inProgress": "Đang tập · {{done}}/{{total}} hiệp",
+    "doneNote": "✓ Đã tập xong. Tốt lắm!",
+    "todaysProgress": "Tiến độ hôm nay",
+    "setN": "Hiệp {{n}}",
+    "setsCompleted": "Số hiệp đã xong",
+    "workoutTime": "Giờ tập",
+    "recovery": {
+      "title": "Ngày nghỉ 🌿",
+      "noWorkout": "Hôm nay không có bài tập.",
+      "body": "Hãy nghỉ ngơi và hồi phục.",
+      "nextTomorrow": "Buổi tập tiếp theo là ngày mai.",
+      "nextOn": "Tiếp theo: Ngày {{day}} · {{what}}",
+      "viewPlan": "Xem lịch tập"
+    },
+    "finished": {
+      "title": "🏁 Đã hoàn thành thử thách",
+      "bestMax": "Kỷ lục",
+      "workouts": "Buổi tập",
+      "totalReps": "Tổng số lần",
+      "longestStreak": "Chuỗi dài nhất",
+      "startNew": "Bắt đầu thử thách mới",
+      "confirmTitle": "Bắt đầu lại?",
+      "confirmMessage": "Toàn bộ lịch sử của thử thách hiện tại sẽ bị xoá.",
+      "confirmLabel": "Bắt đầu thử thách mới"
+    },
+    "unfinished": {
+      "text": "Bài tập Ngày {{day}} chưa xong · {{done}}/{{total}} hiệp",
+      "discard": "Bỏ",
+      "resume": "Tập tiếp"
+    },
+    "catchUp": {
+      "missedOne": "Bạn đã lỡ Ngày {{day}}. Tập lại từ Ngày {{day}} hôm nay?",
+      "missedMany": "Bạn đã lỡ {{count}} ngày. Tập lại từ Ngày {{day}} hôm nay?",
+      "button": "Tập bù"
+    }
+  },
+  "workout": {
+    "exit": "Thoát bài tập",
+    "clock": "Thời gian tập",
+    "leaveTitle": "Rời bài tập?",
+    "leaveMessage": "Đã xong {{done}}/{{total}} hiệp. Bạn có thể tập tiếp từ màn Hôm nay.",
+    "saveExit": "Lưu & thoát",
+    "keepTraining": "Tập tiếp",
+    "discard": "Huỷ bài tập",
+    "setN": "Hiệp {{n}}",
+    "repsLeft": "Còn {{count}} lần. Chạm để đếm một lần.",
+    "unitReps": "lần",
+    "unitToGo": "còn lại",
+    "hint": "Chạm vào vòng tròn mỗi lần — hoặc bấm Xong hiệp",
+    "doneSet": "Xong hiệp",
+    "setsDone": "Đã xong {{done}}/{{total}} hiệp"
+  },
+  "rest": {
+    "label": "Nghỉ",
+    "next": "Tiếp theo:",
+    "minus15": "Bớt 15 giây",
+    "plus15": "Thêm 15 giây",
+    "pause": "Tạm dừng nghỉ",
+    "resume": "Tiếp tục nghỉ",
+    "skip": "Bỏ qua nghỉ"
+  },
+  "complete": {
+    "title": "Hoàn thành bài tập",
+    "dayCompleted": "Đã xong Ngày {{day}}",
+    "time": "Thời gian",
+    "sets": "Hiệp",
+    "streak": "Chuỗi",
+    "challenge": "Thử thách",
+    "progress": "Tiến độ 30 ngày"
+  },
+  "test": {
+    "title": "Kiểm tra hít đất tối đa",
+    "previousBest": "Kỷ lục trước",
+    "instructions": "Một hiệp, làm nhiều nhất có thể với tư thế đúng. Bấm nút lớn để đếm mỗi lần.",
+    "testedToday": "✓ Đã kiểm tra hôm nay: {{count}} lần",
+    "start": "Bắt đầu kiểm tra",
+    "resume": "Tiếp tục kiểm tra",
+    "again": "Kiểm tra lại",
+    "exit": "Thoát kiểm tra",
+    "sessionTitle": "Kiểm tra · Ngày {{day}}",
+    "stopwatch": "Đồng hồ bấm giờ",
+    "plusOne": "+1 LẦN",
+    "undo": "Hoàn tác −1",
+    "finish": "Kết thúc",
+    "leaveTitle": "Rời bài kiểm tra?",
+    "leaveMessage": "Số lần đã đếm được giữ lại. Bạn có thể tiếp tục từ màn Hôm nay.",
+    "saveExit": "Lưu & thoát",
+    "keepGoing": "Làm tiếp",
+    "discard": "Huỷ bài kiểm tra",
+    "goalReached": "Đã đạt mục tiêu {{goal}}!",
+    "toGo": "Còn {{left}} lần nữa để đạt mục tiêu {{goal}}"
+  },
+  "progress": {
+    "eyebrow": "Thử thách 30 ngày",
+    "challengeProgress": "Tiến độ thử thách",
+    "workoutTime": "Giờ tập",
+    "currentStreak": "Chuỗi hiện tại",
+    "streakDays_one": "{{count}} ngày",
+    "streakDays_other": "{{count}} ngày",
+    "totalWorkouts": "Tổng buổi tập",
+    "totalReps": "Tổng số lần",
+    "longestStreak": "Chuỗi dài nhất",
+    "bestMax": "Kỷ lục",
+    "calendar": "Lịch",
+    "maxTests": "Kiểm tra tối đa",
+    "start": "Ban đầu",
+    "initial": "khởi điểm",
+    "calendarDay": "Ngày {{day}}, {{type}}, {{status}}",
+    "legend": {
+      "completed": "✓ đã xong",
+      "today": "● hôm nay",
+      "upcoming": "○ sắp tới",
+      "rest": "— nghỉ",
+      "missed": "✕ đã lỡ"
+    }
+  },
+  "plan": {
+    "eyebrow": "Lịch tập",
+    "title": "30 ngày"
+  },
+  "dayDetail": {
+    "recoveryTitle": "Ngày nghỉ",
+    "setsOfReps": "{{sets}} hiệp × {{reps}} lần · tổng {{total}} lần",
+    "restBody": "Không có bài tập. Hãy để cơ bắp hồi phục.",
+    "unlocksOn": "Mở vào {{date}}",
+    "startWorkout": "Bắt đầu tập",
+    "trainAgain": "Tập lại",
+    "startTest": "Bắt đầu kiểm tra",
+    "testAgain": "Kiểm tra lại"
+  },
+  "onboarding": {
+    "eyebrow": "Thử thách hít đất 30 ngày",
+    "maxTitle": "Bạn hít đất được tối đa bao nhiêu cái?",
+    "maxBody": "Làm liền một mạch, đúng tư thế. Ước lượng cũng được.",
+    "maxLabel": "Số lần tối đa",
+    "goalTitle": "Mục tiêu của bạn là gì?",
+    "goalBody": "Số lần hít đất liên tục vào Ngày 30.",
+    "goalLabel": "Mục tiêu",
+    "startDay1": "Bắt đầu Ngày 1"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "workout": "Bài tập",
+    "dailyReminder": "Nhắc tập hàng ngày",
+    "workoutTime": "Giờ tập",
+    "custom": "Tuỳ chọn",
+    "customTime": "Giờ tập tuỳ chọn",
+    "restTime": "Thời gian nghỉ",
+    "resetRest": "Về mặc định của lịch tập ({{seconds}} giây)",
+    "reminderUnsupported": "Trình duyệt này không hỗ trợ thông báo. Trên iPhone hoặc iPad, hãy thêm app vào Màn hình chính trước (iOS 16.4 trở lên).",
+    "reminderBlocked": "Thông báo đang bị chặn nên nhắc tập đang tắt. Hãy cho phép thông báo cho trang này trong cài đặt trình duyệt.",
+    "reminderLimits": "Nhắc tập hiển thị khi app đang mở hoặc chạy nền. Để luôn có chuông báo, hãy thêm vào lịch của bạn.",
+    "addToCalendar": "Thêm vào lịch",
+    "sendTest": "Gửi thử thông báo",
+    "goal": "Mục tiêu",
+    "startingMax": "Tối đa ban đầu: {{count}} lần. Lịch tập được điều chỉnh theo con số này.",
+    "cues": "Tín hiệu",
+    "sound": "Âm thanh",
+    "vibration": "Rung",
+    "language": "Ngôn ngữ",
+    "challenge": "Thử thách",
+    "reset": "Đặt lại thử thách",
+    "resetTitle": "Đặt lại thử thách?",
+    "resetMessage": "Toàn bộ buổi tập, bài kiểm tra và tiến độ sẽ bị xoá. Cài đặt được giữ nguyên.",
+    "resetConfirm": "Xoá tất cả"
+  },
+  "reminderPrompt": {
+    "title": "Giữ vững nhịp tập 💪",
+    "body": "Nhận lời nhắc mỗi ngày lúc {{time}} để không bao giờ bỏ lỡ buổi tập.",
+    "enable": "Bật nhắc tập",
+    "notNow": "Để sau"
+  },
+  "notification": {
+    "workoutTitle": "💪 Đến giờ tập rồi",
+    "workoutBody": "Ngày {{day}} đã sẵn sàng.\n{{scheme}} hít đất",
+    "startAction": "Bắt đầu tập",
+    "testTitle": "🏆 Hôm nay kiểm tra hít đất tối đa",
+    "testBody": "Ngày {{day}} đã sẵn sàng.\nKỷ lục trước: {{best}} lần",
+    "restTitle": "🌿 Ngày nghỉ",
+    "restBodyTomorrow": "Hôm nay hãy nghỉ ngơi.\nBuổi tập tiếp theo là ngày mai.",
+    "restBodyLater": "Hôm nay hãy nghỉ ngơi.\nBuổi tập tiếp theo: Ngày {{day}}.",
+    "checkTitle": "✅ Đã bật nhắc tập",
+    "checkBody": "Bạn sẽ được nhắc mỗi ngày lúc {{time}}."
+  },
+  "calendarEvent": {
+    "title": "💪 Tập hít đất",
+    "description": "Mở Push-up 30 và bắt đầu bài tập hôm nay."
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "English"
+  }
+}
