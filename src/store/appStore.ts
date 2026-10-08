@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 import { isRecentlyActive } from '../domain/activity';
+import { effectivePlanDay, isAdjusted, recommendAdjustment, toAdjustment } from '../domain/adjustment';
 import { generatePlan, getPlanDay, restSecondsFor } from '../domain/plan';
 import { catchUpStartDate, currentDayNumber, isDayUnlocked, missedDays } from '../domain/schedule';
 import { bestMax } from '../domain/stats';
 import * as test from '../domain/testSession';
-import type { AppData, Language, Settings, TimeOfDay } from '../domain/types';
+import type { AppData, Difficulty, Language, Settings, TimeOfDay } from '../domain/types';
 import * as workout from '../domain/workoutSession';
 import { isPastWorkoutTime } from '../domain/workoutTime';
 import { LocalStorageRepository } from '../persistence/localStorageRepository';
@@ -25,7 +26,8 @@ interface Actions {
   completeOnboarding(initialMax: number, goal: number): void;
 
   startWorkout(day: number): void;
-  completeSet(): void;
+  /** Completes the current set with the reps actually done (default: the target). */
+  completeSet(repsDone?: number): void;
   skipRest(): void;
   pauseRest(): void;
   resumeRest(): void;
@@ -34,6 +36,10 @@ interface Actions {
   tick(): boolean;
   heartbeat(): void;
   abandonWorkout(): void;
+  /** "How was today's workout?" — null clears it (skip). */
+  rateWorkout(logId: string, difficulty: Difficulty | null): void;
+  /** Apply or keep the plan for a finished workout's recommendation. Records it in the history either way. */
+  decideAdjustment(logId: string, apply: boolean): void;
 
   startTest(day: number): void;
   addTestReps(delta: number): void;
@@ -99,26 +105,27 @@ export const useApp = create<AppState>()((set, get) => {
 
     startWorkout(day) {
       const { data } = get();
-      const plan = getPlanDay(data.plan, day);
+      const plan = effectivePlanDay(data, day);
       if (!plan || plan.type !== 'workout' || !data.profile) return;
       if (!isDayUnlocked(day, currentDayNumber(data.profile, todayKey()))) return;
       // Resume the same day's session; any other unfinished session is replaced.
       if (data.activeWorkout?.day !== day) {
-        update((d) => ({ ...d, activeWorkout: workout.startWorkout(plan, now()) }));
+        update((d) => ({ ...d, activeWorkout: workout.startWorkout(plan, now(), isAdjusted(data, day)) }));
       } else {
         update((d) => ({ ...d, activeWorkout: workout.heartbeat(d.activeWorkout!, now()) }));
       }
       set({ overlay: { kind: 'workout' } });
     },
 
-    completeSet() {
+    completeSet(repsDone) {
       const { data } = get();
       const s = data.activeWorkout;
       if (!s) return;
       const plan = getPlanDay(data.plan, s.day);
       const restMs = plan?.type === 'workout' ? restSecondsFor(plan, data.settings) * 1000 : 0;
       const t = now();
-      const next = workout.completeSet(s, s.reps, restMs, t);
+      const reps = repsDone === undefined ? s.reps : Math.max(0, Math.round(repsDone));
+      const next = workout.completeSet(s, reps, restMs, t);
       if (!workout.isWorkoutDone(next)) {
         update((d) => ({ ...d, activeWorkout: next }));
         return;
@@ -152,6 +159,25 @@ export const useApp = create<AppState>()((set, get) => {
 
     abandonWorkout() {
       set((st) => ({ data: { ...st.data, activeWorkout: null }, overlay: null }));
+    },
+
+    rateWorkout(logId, difficulty) {
+      update((d) => ({
+        ...d,
+        workoutLogs: d.workoutLogs.map((l) => {
+          if (l.id !== logId) return l;
+          const { difficulty: _, ...rest } = l;
+          return difficulty ? { ...rest, difficulty } : rest;
+        }),
+      }));
+    },
+
+    decideAdjustment(logId, apply) {
+      // Recomputed from saved data, so a stale or repeated tap cannot record twice.
+      const rec = recommendAdjustment(get().data, logId);
+      if (!rec) return;
+      const entry = toAdjustment(rec, apply, newId(), now());
+      update((d) => ({ ...d, adjustments: [...d.adjustments, entry] }));
     },
 
     startTest(day) {
@@ -225,7 +251,7 @@ export const useApp = create<AppState>()((set, get) => {
     },
 
     resetChallenge() {
-      // Keep preferences; wipe the challenge.
+      // Keep preferences; wipe the challenge (logs, tests, adjustments → back to a fresh base plan).
       const settings = get().data.settings;
       update(() => ({ ...emptyData(), settings }));
       set({ tab: 'today', overlay: null });

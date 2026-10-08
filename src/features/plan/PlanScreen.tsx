@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { effectivePlanDay, isAdjusted } from '../../domain/adjustment';
 import { totalTargetReps } from '../../domain/plan';
 import { dateOfDay, dayStatus } from '../../domain/schedule';
 import type { DayStatus } from '../../domain/types';
@@ -36,7 +37,8 @@ export function PlanScreen() {
       </header>
 
       <ul className="plan-list">
-        {data.plan.map((d) => {
+        {data.plan.map((base) => {
+          const d = effectivePlanDay(data, base.day) ?? base;
           const status = dayStatus(data, d, todayDay);
           return (
             <li key={d.day} ref={d.day === todayDay ? todayRef : undefined}>
@@ -51,6 +53,7 @@ export function PlanScreen() {
                   <span className="plan-meta">
                     {formatDate(lang, dateOfDay(data.profile!, d.day))}
                     {d.type === 'workout' && ` · ${t('common.repsCount', { count: totalTargetReps(d) })}`}
+                    {isAdjusted(data, d.day) && ` · ${t('adjust.adjusted')}`}
                   </span>
                 </span>
                 <span className="plan-mark" aria-label={t(`dayStatus.${status}`)}>

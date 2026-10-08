@@ -25,6 +25,7 @@ export function emptyData(): AppData {
     plan: [],
     workoutLogs: [],
     testResults: [],
+    adjustments: [],
     activeWorkout: null,
     activeTest: null,
     settings: structuredClone(DEFAULT_SETTINGS),

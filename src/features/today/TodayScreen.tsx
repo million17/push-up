@@ -3,7 +3,8 @@ import { Button } from '../../components/Button';
 import { ConfirmSheet } from '../../components/ConfirmSheet';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Stat } from '../../components/Stat';
-import { estimateWorkoutMinutes, formatWorkout, getPlanDay, totalTargetReps } from '../../domain/plan';
+import { effectivePlanDay, isAdjusted } from '../../domain/adjustment';
+import { estimateWorkoutMinutes, formatWorkout, totalTargetReps } from '../../domain/plan';
 import { isChallengeOver, isDayCompleted, missedDays, nextTrainingDay } from '../../domain/schedule';
 import { bestMax, completedTrainingDays, computeStreak, totalReps } from '../../domain/stats';
 import type { AppData, WorkoutPlanDay } from '../../domain/types';
@@ -27,7 +28,7 @@ export function TodayScreen() {
   const data = useApp((s) => s.data);
   const { today, todayDay } = useToday();
   const now = useNow(30_000);
-  const plan = getPlanDay(data.plan, todayDay);
+  const plan = effectivePlanDay(data, todayDay);
   const over = isChallengeOver(data, today) || !plan;
 
   return (
@@ -75,7 +76,10 @@ function WorkoutCard({ data, plan, now }: { data: AppData; plan: WorkoutPlanDay;
 
   return (
     <section className="card hero-card">
-      <p className="eyebrow accent">{t('today.todaysWorkout')}</p>
+      <div className="card-head">
+        <p className="eyebrow accent">{t('today.todaysWorkout')}</p>
+        {isAdjusted(data, plan.day) && <span className="tag">{t('adjust.adjusted')}</span>}
+      </div>
       <div className="hero-workout">
         <span className="hero-scheme">{formatWorkout(plan)}</span>
         <span className="hero-name">{t('common.pushUps')}</span>

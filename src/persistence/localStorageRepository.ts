@@ -61,6 +61,8 @@ function migrate(env: Envelope): AppData {
   return {
     ...base,
     ...d,
+    // Added in V1.1; older saves have no adjustments.
+    adjustments: Array.isArray(d.adjustments) ? d.adjustments : [],
     settings: {
       ...DEFAULT_SETTINGS,
       ...d.settings,

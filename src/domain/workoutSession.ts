@@ -8,11 +8,13 @@ import type { ActiveWorkout, WorkoutLog, WorkoutPlanDay } from './types';
  * All functions are pure; `now` is always passed in.
  */
 
-export function startWorkout(plan: WorkoutPlanDay, now: number): ActiveWorkout {
+/** `plan` is the day's effective plan; `adjusted` marks it as coming from an applied adjustment. */
+export function startWorkout(plan: WorkoutPlanDay, now: number, adjusted = false): ActiveWorkout {
   return {
     day: plan.day,
     sets: plan.sets,
     reps: plan.reps,
+    adjusted,
     startedAt: now,
     pausedMs: 0,
     lastActiveAt: now,
@@ -85,5 +87,7 @@ export function finishWorkout(s: ActiveWorkout, now: number, id: string): Workou
     durationSec: Math.round(workoutElapsedMs(s, now) / 1000),
     sets: [...s.completedSets],
     totalReps,
+    planned: { sets: s.sets, reps: s.reps },
+    adjusted: s.adjusted ?? false,
   };
 }

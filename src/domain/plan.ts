@@ -1,5 +1,5 @@
 import { DEFAULT_PLAN, DEFAULT_PLAN_BASE_MAX, DEFAULT_REST_SECONDS } from './defaultPlan';
-import type { PlanDay, Settings, WorkoutPlanDay } from './types';
+import type { PlanDay, Settings, SetsReps, WorkoutPlanDay } from './types';
 
 const MIN_SCALE = 0.5;
 const MAX_SCALE = 2.5;
@@ -24,7 +24,7 @@ export function planLength(plan: readonly PlanDay[]): number {
   return plan.length;
 }
 
-export function totalTargetReps(d: WorkoutPlanDay): number {
+export function totalTargetReps(d: SetsReps): number {
   return d.sets * d.reps;
 }
 
@@ -36,8 +36,14 @@ export function isTrainingDay(d: PlanDay): boolean {
   return d.type !== 'rest';
 }
 
-export function formatWorkout(d: WorkoutPlanDay): string {
+export function formatWorkout(d: SetsReps): string {
   return `${d.sets} × ${d.reps}`;
+}
+
+/** Reps actually done: "4 × 10" when every set matched, else "12 · 12 · 10 · 8". */
+export function formatSets(sets: readonly number[]): string {
+  if (sets.length > 1 && sets.every((r) => r === sets[0])) return formatWorkout({ sets: sets.length, reps: sets[0] });
+  return sets.join(' · ');
 }
 
 function clamp(n: number, min: number, max: number): number {

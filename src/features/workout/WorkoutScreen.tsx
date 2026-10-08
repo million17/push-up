@@ -79,22 +79,33 @@ export function WorkoutScreen() {
   );
 }
 
+/** Upper bound for one set's logged reps (guards against a stuck + button). */
+const MAX_SET_REPS = 300;
+
 function SetView({ session }: { session: ActiveWorkout }) {
   const { t } = useT();
   const completeSet = useApp((s) => s.completeSet);
   const setIndex = session.completedSets.length;
   const [left, setLeft] = useState(session.reps);
+  // Reps that will be logged for this set: the target until the user counts or adjusts.
+  const [logged, setLogged] = useState(session.reps);
 
   // New set → reset the counter.
-  useEffect(() => setLeft(session.reps), [setIndex, session.reps]);
+  useEffect(() => {
+    setLeft(session.reps);
+    setLogged(session.reps);
+  }, [setIndex, session.reps]);
 
   const tap = () => {
     if (left <= 0) return;
     const next = left - 1;
     setLeft(next);
+    setLogged(session.reps - next);
     vibrate(15);
-    if (next === 0) completeSet();
+    if (next === 0) completeSet(session.reps);
   };
+
+  const adjust = (delta: number) => setLogged((v) => Math.min(MAX_SET_REPS, Math.max(0, v + delta)));
 
   return (
     <section className="session-main">
@@ -105,8 +116,20 @@ function SetView({ session }: { session: ActiveWorkout }) {
         <span className="rep-number">{left}</span>
         <span className="rep-unit">{left === session.reps ? t('workout.unitReps') : t('workout.unitToGo')}</span>
       </button>
+      <div className="rep-adjust" role="group" aria-label={t('workout.repsDone')}>
+        <button type="button" className="round-btn" onClick={() => adjust(-1)} disabled={logged <= 0} aria-label={t('workout.oneLess')}>
+          −
+        </button>
+        <span className="rep-adjust-value" aria-live="polite">
+          <strong>{logged}</strong>
+          <span className="muted">{t('workout.repsDone')}</span>
+        </span>
+        <button type="button" className="round-btn" onClick={() => adjust(1)} disabled={logged >= MAX_SET_REPS} aria-label={t('workout.oneMore')}>
+          +
+        </button>
+      </div>
       <p className="hint">{t('workout.hint')}</p>
-      <Button size="xl" block onClick={completeSet}>
+      <Button size="xl" block onClick={() => completeSet(logged)}>
         <Icon name="check" /> {t('workout.doneSet')}
       </Button>
     </section>

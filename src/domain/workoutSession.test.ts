@@ -46,6 +46,19 @@ describe('workout session', () => {
     expect(log.durationSec).toBe(260);
   });
 
+  it('logs the reps actually done against the (possibly adjusted) target', () => {
+    let s = startWorkout({ ...day12, sets: 3, reps: 8 }, t0, true);
+    s = completeSet(s, 8, 0, t0 + 1000);
+    s = completeSet(s, 6, 0, t0 + 2000);
+    s = completeSet(s, 11, 0, t0 + 3000);
+    expect(finishWorkout(s, t0 + 3000, 'y')).toMatchObject({
+      sets: [8, 6, 11],
+      totalReps: 25,
+      planned: { sets: 3, reps: 8 },
+      adjusted: true,
+    });
+  });
+
   it('ignores extra completes once done (double tap)', () => {
     let s = startWorkout({ ...day12, sets: 1 }, t0);
     s = completeSet(s, 10, REST, t0 + 1000);

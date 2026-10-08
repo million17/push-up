@@ -102,9 +102,12 @@
     "repsLeft": "{{count}} reps left. Tap to count one rep.",
     "unitReps": "reps",
     "unitToGo": "to go",
-    "hint": "Tap the circle each rep — or just hit Done",
+    "hint": "Tap the circle each rep, or set the reps with − / + and hit Done",
     "doneSet": "Done set",
-    "setsDone": "{{done}} of {{total}} sets done"
+    "setsDone": "{{done}} of {{total}} sets done",
+    "repsDone": "reps done",
+    "oneLess": "One rep less",
+    "oneMore": "One rep more"
   },
   "rest": {
     "label": "Rest",
@@ -122,7 +125,10 @@
     "sets": "Sets",
     "streak": "Streak",
     "challenge": "Challenge",
-    "progress": "30 day progress"
+    "progress": "30 day progress",
+    "completedPct": "Completed {{pct}}%",
+    "savedTitle": "Workout saved",
+    "savedBody": "Day {{day}} is still open — come back when you're ready."
   },
   "test": {
     "title": "Max push-up test",
@@ -147,7 +153,6 @@
     "toGo": "{{left}} to go to your goal of {{goal}}"
   },
   "progress": {
-    "eyebrow": "30 Day Challenge",
     "challengeProgress": "Challenge progress",
     "workoutTime": "Workout time",
     "currentStreak": "Current streak",
@@ -168,6 +173,83 @@
       "upcoming": "○ upcoming",
       "rest": "— rest",
       "missed": "✕ missed"
+    },
+    "title": "Progress",
+    "currentBest": "Current best",
+    "startingMax": "Starting max",
+    "improvement": "Improvement",
+    "improvementLine": "+{{diff}} reps",
+    "toGoal": "To goal",
+    "nextTest": "Next test",
+    "goalProgress": "Goal progress"
+  },
+  "chart": {
+    "maxTitle": "Push-up progress",
+    "maxSubtitle": "Max push-ups in one set: your start and each Max Test",
+    "empty": "Your chart starts with your first Max Test on Day {{day}}. Starting max: {{reps}} reps.",
+    "emptyNoTest": "No Max Test results yet.",
+    "volumeTitle": "Total reps",
+    "volumeSubtitle": "Reps you actually did on each workout day",
+    "volumeOfPlanned": "{{done}} / {{planned}} reps"
+  },
+  "milestones": {
+    "title": "Milestones",
+    "started": "Started",
+    "first": "First {{count}}",
+    "reps": "{{count}} push-ups",
+    "reachedOn": "Reached on Day {{day}}",
+    "notYet": "Not yet",
+    "achieved": "Achieved"
+  },
+  "history": {
+    "recent": "Recent workouts",
+    "empty": "No workouts yet. Your finished workouts will show up here.",
+    "showAll": "Show full workout history ({{count}})",
+    "showLess": "Show less",
+    "restDay": "Rest day",
+    "completedPct": "{{pct}}% completed",
+    "planned": "Planned",
+    "actual": "Actual",
+    "total": "Total",
+    "difficulty": "Difficulty",
+    "skipped": "Skipped",
+    "adjustedYes": "Yes · {{scheme}}",
+    "no": "No"
+  },
+  "difficulty": {
+    "question": "How was today's workout?",
+    "easy": "Easy",
+    "good": "Good",
+    "hard": "Hard",
+    "very_hard": "Very hard",
+    "optional": "Optional — skip it if you like."
+  },
+  "adjust": {
+    "recommended": "Recommended workout",
+    "challengingTitle": "Today's workout was challenging.",
+    "challengingBody": "We recommend adjusting your next workout.",
+    "easyTitle": "Nice work! 💪",
+    "easyBody": "You completed today's workout easily. We recommend a small progression for your next workout.",
+    "consistency": "Consistency matters more than perfection.",
+    "tomorrow": "Tomorrow",
+    "changesTo": "changes to",
+    "apply": "Apply",
+    "applyAdjustment": "Apply adjustment",
+    "keepPlan": "Keep plan",
+    "appliedNote": "✓ Day {{day}} adjusted to {{scheme}}.",
+    "keptNote": "Plan kept: Day {{day}} stays {{scheme}}.",
+    "adjusted": "Adjusted",
+    "adjustedFrom": "Adjusted · original plan {{scheme}}",
+    "history": "Adjustment history",
+    "fromDay": "After Day {{day}}",
+    "applied": "Applied",
+    "kept": "Kept plan",
+    "reason": {
+      "easy": "Felt easy",
+      "hard": "Felt hard",
+      "very_hard": "Felt very hard",
+      "low_completion": "Under 75% completed",
+      "partial_completion": "75–89% completed"
     }
   },
   "plan": {
